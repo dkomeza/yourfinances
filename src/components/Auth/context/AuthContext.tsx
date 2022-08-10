@@ -6,7 +6,7 @@ interface AuthUser {
     uid: string;
 }
 
-export const AuthContext = React.createContext({});
+export const AuthContext = React.createContext<any | null>(null);;
 
 export function useAuth() {
     return useContext(AuthContext)
