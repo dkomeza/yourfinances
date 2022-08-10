@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { onAuthStateChanged, createUserWithEmailAndPassword } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../../firebase/Firebase"
 
 interface AuthUser {
@@ -8,8 +8,8 @@ interface AuthUser {
 
 export const AuthContext = React.createContext({});
 
-export function getAuth() {
-    return useContext(AuthContext);
+export function useAuth() {
+    return useContext(AuthContext)
 }
 
 export function AuthProvider({children}:{children: any}) {

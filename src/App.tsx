@@ -1,10 +1,13 @@
 import React from 'react';
+import { AuthProvider } from './components/Auth/context/AuthContext';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-      </header>
+      <AuthProvider>
+        <header className="App-header">
+        </header>
+      </AuthProvider>
     </div>
   );
 }
