@@ -1,0 +1,45 @@
+@media screen and (min-width: 576px) {
+    .login-container {
+        width: 100vw;
+        min-height: 100vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        background-color: #0A0A0A;
+
+        .form-wrapper {
+            width: 460px;
+            background-color: rgba(20, 20, 20, 0.5);
+            box-shadow: 4px 4px 26px 9px rgba(0, 0, 0, 0.55), 
+                        inset 0px 0px 32px 1px rgba(255, 255, 255, 0.2);
+            border-radius: 38px;
+            padding: 18px 24px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .form-header {
+                width: 100%;
+                padding-bottom: 34px;
+                img {
+                    display: block;
+                    margin: 0 auto;
+                    height: 82px;
+                }
+                border-bottom: 1px solid rgba(250, 250, 250, 0.2);
+            }
+            .form-container {
+                padding: 0 22px;
+                form {
+                    .field-group {
+                        label {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
