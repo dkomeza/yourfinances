@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, onAuthStateChanged, 
     signInWithEmailAndPassword, signOut, GoogleAuthProvider, 
-    FacebookAuthProvider, signInWithPopup, signInWithRedirect } from "firebase/auth";
+    FacebookAuthProvider, signInWithRedirect } from "firebase/auth";
 import { auth } from "../../../firebase/Firebase"
 
 const googleProvider = new GoogleAuthProvider();
@@ -50,23 +50,12 @@ export function AuthProvider({children}:{children: any}) {
         return signOut(auth);
     }
 
-    function googleSignin(width: number) {
-        // if (width < 768) {
-        //     console.log(width)
-        //     return signInWithRedirect(auth, googleProvider);
-        // } else {
-            console.log(width, "desktop")
-            return signInWithPopup(auth, googleProvider);
-        // }
+    function googleSignin() {
+        return signInWithRedirect(auth, googleProvider);
     }
 
-    function facebookSignin(width: number) {
-        if (width < 768) {
-            console.log(width)
-            return signInWithRedirect(auth, facebookProvider);
-        } else {
-        return signInWithPopup(auth, facebookProvider);
-        }
+    function facebookSignin() {
+        return signInWithRedirect(auth, facebookProvider);
     }
 
     return (

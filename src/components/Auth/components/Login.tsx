@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
@@ -13,10 +13,16 @@ function Login() {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   const [showPassword, setShowPassword] = useState('password');
-  const { currentUser, signin, signout, googleSignin, facebookSignin } = useAuth();
+  const { currentUser, signin, googleSignin, facebookSignin } = useAuth();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (currentUser) {
+      navigate('/');
+    }
+  })
 
   async function handleSignin(e: React.FormEvent) {
     e.preventDefault();
@@ -37,7 +43,7 @@ function Login() {
     setLoading(true);
     setError('');
     try {
-      await googleSignin(window.innerWidth);
+      await googleSignin();
       navigate('/');
     } catch (error: any) {
       setError(error.toString());
@@ -49,16 +55,12 @@ function Login() {
     setLoading(true);
     setError('');
     try {
-      await facebookSignin(window.innerWidth);
+      await facebookSignin();
       navigate('/');
     } catch (error: any) {
       setError(error.toString());
     }
     setLoading(false);
-  }
-
-  async function handleSignout() {
-    await signout();
   }
 
   function handleShowPassword() {
@@ -105,12 +107,6 @@ function Login() {
           </button>
         </div>
       </div>
-    </main>
-    }
-    { currentUser && 
-    <main>
-      <h1 style={{color: "white", textAlign: "center"}}>You are already logged in</h1>
-      <button onClick={handleSignout}>Sign Out</button>
     </main>
     }
     </>
