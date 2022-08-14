@@ -1,6 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, 
+    signInWithEmailAndPassword, signOut, GoogleAuthProvider, 
+    FacebookAuthProvider, signInWithPopup, signInWithRedirect } from "firebase/auth";
 import { auth } from "../../../firebase/Firebase"
+
+const googleProvider = new GoogleAuthProvider();
+const facebookProvider = new FacebookAuthProvider();
 
 interface AuthUser {
     uid: string;
@@ -28,6 +33,9 @@ export function AuthProvider({children}:{children: any}) {
         currentUser,
         signup,
         signin,
+        signout,
+        googleSignin,
+        facebookSignin,
     };
 
     function signup(email: string, password: string) {
@@ -36,6 +44,26 @@ export function AuthProvider({children}:{children: any}) {
 
     function signin(email: string, password: string) {
         return signInWithEmailAndPassword(auth, email, password);
+    }
+
+    function signout() {
+        return signOut(auth);
+    }
+
+    function googleSignin(width: number) {
+        if (width < 768) {
+            return signInWithRedirect(auth, googleProvider);
+        } else {
+        return signInWithPopup(auth, googleProvider);
+        }
+    }
+
+    function facebookSignin(width: number) {
+        if (width < 768) {
+            return signInWithRedirect(auth, facebookProvider);
+        } else {
+        return signInWithPopup(auth, facebookProvider);
+        }
     }
 
     return (

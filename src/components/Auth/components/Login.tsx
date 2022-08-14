@@ -13,12 +13,12 @@ function Login() {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   const [showPassword, setShowPassword] = useState('password');
-  const { signin } = useAuth();
+  const { currentUser, signin, signout, googleSignin, facebookSignin } = useAuth();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  async function handleLogin(e: React.FormEvent) {
+  async function handleSignin(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
     setError('');
@@ -33,6 +33,34 @@ function Login() {
     setLoading(false);
   }
 
+  async function handleGoogleSignin() {
+    setLoading(true);
+    setError('');
+    try {
+      await googleSignin(window.innerWidth);
+      navigate('/');
+    } catch (error: any) {
+      setError(error);
+    }
+    setLoading(false);
+  }
+
+  async function handleFacebookSignin() {
+    setLoading(true);
+    setError('');
+    try {
+      await facebookSignin(window.innerWidth);
+      navigate('/');
+    } catch (error: any) {
+      setError(error);
+    }
+    setLoading(false);
+  }
+
+  async function handleSignout() {
+    await signout();
+  }
+
   function handleShowPassword() {
     if (showPassword ===   "password") {
       setShowPassword("text");
@@ -43,6 +71,8 @@ function Login() {
   }
 
   return (
+    <>
+    { !currentUser && 
     <main className='login-container'>
       <div className="form-wrapper">
         {error && <p>{error}</p>}
@@ -50,7 +80,7 @@ function Login() {
           <img src={logo} alt="logo" />
         </div>
         <div className="form-container">
-          <form onSubmit={ handleLogin }>
+          <form onSubmit={ handleSignin }>
             <div className="field-group">
               <fieldset>
                 <label htmlFor="email">Email</label>
@@ -67,15 +97,23 @@ function Login() {
           <p>Don't have an account? <Link to={"/signup"}>Sign Up</Link> here</p>
         </div>
         <div className="form-footer">
-          <button className="google-login social-login">
+          <button className="google-login social-login" onClick={handleGoogleSignin}>
             <img src={googleIcon} alt="Google icon" />Sign In with Google
           </button>
-          <button className="facebook-login social-login">
+          <button className="facebook-login social-login" onClick={handleFacebookSignin}>
             <img src={facebookIcon} alt="Facebook icon" />Sign In with Facebook
           </button>
         </div>
       </div>
     </main>
+    }
+    { currentUser && 
+    <main>
+      <h1 style={{color: "white", textAlign: "center"}}>You are already logged in</h1>
+      <button onClick={handleSignout}>Sign Out</button>
+    </main>
+    }
+    </>
     )
 }
 
