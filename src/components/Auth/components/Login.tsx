@@ -40,7 +40,7 @@ function Login() {
       await googleSignin(window.innerWidth);
       navigate('/');
     } catch (error: any) {
-      setError(error);
+      setError(error.toString());
     }
     setLoading(false);
   }
@@ -52,7 +52,7 @@ function Login() {
       await facebookSignin(window.innerWidth);
       navigate('/');
     } catch (error: any) {
-      setError(error);
+      setError(error.toString());
     }
     setLoading(false);
   }
@@ -75,7 +75,7 @@ function Login() {
     { !currentUser && 
     <main className='login-container'>
       <div className="form-wrapper">
-        {error && <p>{error}</p>}
+        {error && <p>{ error }</p>}
         <div className="form-header">
           <img src={logo} alt="logo" />
         </div>

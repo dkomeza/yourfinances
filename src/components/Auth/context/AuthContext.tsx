@@ -51,15 +51,18 @@ export function AuthProvider({children}:{children: any}) {
     }
 
     function googleSignin(width: number) {
-        if (width < 768) {
-            return signInWithRedirect(auth, googleProvider);
-        } else {
-        return signInWithPopup(auth, googleProvider);
-        }
+        // if (width < 768) {
+        //     console.log(width)
+        //     return signInWithRedirect(auth, googleProvider);
+        // } else {
+            console.log(width, "desktop")
+            return signInWithPopup(auth, googleProvider);
+        // }
     }
 
     function facebookSignin(width: number) {
         if (width < 768) {
+            console.log(width)
             return signInWithRedirect(auth, facebookProvider);
         } else {
         return signInWithPopup(auth, facebookProvider);
