@@ -36,6 +36,7 @@ export function AuthProvider({children}:{children: any}) {
         signout,
         googleSignin,
         facebookSignin,
+        handleErrorCodes
     };
 
     function signup(email: string, password: string) {
@@ -56,6 +57,23 @@ export function AuthProvider({children}:{children: any}) {
 
     function facebookSignin() {
         return signInWithRedirect(auth, facebookProvider);
+    }
+
+    function handleErrorCodes(code: string) {
+        switch (code) {
+            case 'auth/user-not-found':
+                return 'User not found';
+            case 'auth/wrong-password':
+                return 'Wrong password';
+            case 'auth/invalid-email':
+                return 'Invalid email';
+            case 'auth/email-already-in-use':
+                return 'Email already in use';
+            case 'auth/weak-password':
+                return 'Weak password';
+            default:
+                return 'Unknown error';
+        }
     }
 
     return (

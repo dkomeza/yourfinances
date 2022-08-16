@@ -13,7 +13,7 @@ function Login() {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   const [showPassword, setShowPassword] = useState('password');
-  const { currentUser, signin, googleSignin, facebookSignin } = useAuth();
+  const { currentUser, signin, googleSignin, facebookSignin, handleErrorCodes } = useAuth();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -34,7 +34,8 @@ function Login() {
       await signin(email, password);
       navigate('/');
     } catch (error: any) {
-      setError(error);
+      setError(handleErrorCodes(error.code));
+      hideError();
     }
     setLoading(false);
   }
@@ -72,12 +73,21 @@ function Login() {
     }
   }
 
+  async function hideError() {
+    window.setTimeout(() => {
+      setError('');
+    } , 1000);
+  }
+
   return (
     <>
     { !currentUser && 
     <main className='login-container'>
+      {error && 
+      <div className="error-container">
+        <p className="error" style={{textAlign: "center"}}>{ error }</p>
+      </div>}
       <div className="form-wrapper">
-        {error && <p>{ error }</p>}
         <div className="form-header">
           <img src={logo} alt="logo" />
         </div>
