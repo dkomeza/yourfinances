@@ -1,8 +1,12 @@
 import React from 'react'
+import { useAuth } from '../Auth/context/AuthContext';
 
 function Dashboard() {
+  const { currentUser, signout } = useAuth();
   return (
-    <div>Dashboard</div>
+    <div>Dashboard
+      {currentUser && <button onClick={signout}>Signout</button>}
+    </div>
   )
 }
 
