@@ -1,12 +1,17 @@
-import React from 'react'
 import { useAuth } from '../Auth/context/AuthContext';
+import Sidebar from './components/Sidebar';
 
 function Dashboard() {
   const { currentUser, signout } = useAuth();
   return (
-    <div>Dashboard
-      {currentUser && <button onClick={signout}>Signout</button>}
-    </div>
+    <main>
+      {currentUser && 
+      <div>
+        <Sidebar />
+        <button onClick={signout}>Signout</button>
+      </div>
+      }
+    </main>
   )
 }
 
