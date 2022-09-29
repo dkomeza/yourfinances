@@ -9,7 +9,7 @@ function Dashboard() {
     <main>
       {currentUser && 
       <div className='dashboard'>
-        <Sidebar />
+        <Sidebar signout={signout}/>
         <button onClick={signout}>Signout</button>
       </div>
       }
