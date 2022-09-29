@@ -1,12 +1,14 @@
 import { useAuth } from '../Auth/context/AuthContext';
 import Sidebar from './components/Sidebar';
 
+import "./scss/style.scss"
+
 function Dashboard() {
   const { currentUser, signout } = useAuth();
   return (
     <main>
       {currentUser && 
-      <div>
+      <div className='dashboard'>
         <Sidebar />
         <button onClick={signout}>Signout</button>
       </div>
