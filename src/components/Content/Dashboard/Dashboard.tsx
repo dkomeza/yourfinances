@@ -1,5 +1,5 @@
-import { useAuth } from '../Auth/context/AuthContext';
-import Sidebar from './components/Sidebar';
+import { useAuth } from '../../Auth/context/AuthContext';
+import Sidebar from '../Sidebar/Sidebar';
 
 import "./scss/style.scss"
 

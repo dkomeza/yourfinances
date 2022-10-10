@@ -1,14 +1,14 @@
 import React from 'react'
+import "./sidebar.scss"
 
+import dashboardIcon from './assets/dashboard.svg'
+import statisticsIcon from './assets/statistics.svg'
+import investmentsIcon from './assets/investments.svg'
+import loansIcon from './assets/loans.svg'
+import budgetIcon from './assets/budget.svg'
+import settingsIcon from './assets/settings.svg'
 
-import dashboardIcon from '../assets/Sidebar/dashboard.svg'
-import statisticsIcon from '../assets/Sidebar/statistics.svg'
-import investmentsIcon from '../assets/Sidebar/investments.svg'
-import loansIcon from '../assets/Sidebar/loans.svg'
-import budgetIcon from '../assets/Sidebar/budget.svg'
-import settingsIcon from '../assets/Sidebar/settings.svg'
-
-import infoCardIcon from '../assets/Sidebar/info-card.png'
+import infoCardIcon from './assets/info-card.png'
 
 function Sidebar(children: any) {
   console.log(children.signout)

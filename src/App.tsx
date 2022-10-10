@@ -5,7 +5,7 @@ import PrivateRoute from './components/Auth/components/PrivateRoute';
 
 import Signup from './components/Auth/components/Signup';
 import Login from './components/Auth/components/Login';
-import Dashboard from './components/Dashboard/Dashboard';
+import InnerRouter from './components/Content/InnerRouter';
 
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
       <Router>
         <AuthProvider>
           <Routes>
-            <Route path="/" element={<PrivateRoute> <Dashboard /> </PrivateRoute>}/>
+            <Route path="/" element={<PrivateRoute> <InnerRouter /> </PrivateRoute>}/>
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
           </Routes>
