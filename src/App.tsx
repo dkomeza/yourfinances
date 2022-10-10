@@ -14,7 +14,7 @@ function App() {
       <Router>
         <AuthProvider>
           <Routes>
-            <Route path="/" element={<PrivateRoute> <InnerRouter /> </PrivateRoute>}/>
+            <Route path="*" element={<PrivateRoute> <InnerRouter /> </PrivateRoute>}/>
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
           </Routes>
