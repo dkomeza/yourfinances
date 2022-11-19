@@ -33,7 +33,7 @@ function Sidebar(children: any) {
           <img src={infoCardIcon} alt="" />
           <h2>Info card</h2>
           <p>A sample info card with link to some article</p>
-          <div className='button-wrapper' onClick={children.children}><a>More details</a></div>
+          <div className='button-wrapper' onClick={children.children.signout}><a>More details</a></div>
         </section>
       </div>
     </aside>
