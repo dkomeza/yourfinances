@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "@Auth/context/AuthContext";
 
-import "../scss/Login.scss";
+import "@Auth/scss/Login.scss";
 
-import logo from "../assets/logo.svg";
-import eyeIcon from "../assets/eye-icon.svg";
-import googleIcon from "../assets/google-icon.svg";
-import facebookIcon from "../assets/facebook-icon.svg";
+import logo from "@Auth/assets/logo.svg";
+import eyeIcon from "@Auth/assets/eye-icon.svg";
+import googleIcon from "@Auth/assets/google-icon.svg";
+import facebookIcon from "@Auth/assets/facebook-icon.svg";
 
 function Login() {
   const emailRef = useRef<HTMLInputElement>(null);

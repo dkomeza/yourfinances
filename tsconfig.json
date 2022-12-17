@@ -18,7 +18,8 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["./src/*"],
-      "@Firebase/*": ["./firebase/*"]
+      "@Firebase/*": ["./firebase/*"],
+      "@Auth/*": ["./src/components/Auth/*"]
     }
   },
   "include": ["src"],
