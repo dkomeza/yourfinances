@@ -18,8 +18,22 @@ function Login() {
     <>
       {!currentUser && (
         <main className="login-page">
-          <div className="background-image-container"></div>
-          <div className="login-container"></div>
+          <div className="background-image-container">
+            <img src={backgroundImage} alt="Background Image" />
+          </div>
+          <div className="login-container">
+            <form>
+              <fieldset>
+                <label htmlFor="email">e-mail</label>
+                <input type="email" name="email" id="email" />
+              </fieldset>
+              <fieldset>
+                <label htmlFor="password">password</label>
+                <input type="password" name="password" id="password" />
+              </fieldset>
+              <button type="submit">Login</button>
+            </form>
+          </div>
         </main>
       )}
     </>
