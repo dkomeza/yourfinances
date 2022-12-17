@@ -11,9 +11,13 @@ export default defineConfig({
   },
   resolve: {
     alias: [
-      { find: "@", replacement: path.join(__dirname,"/src") },
+      { find: "@", replacement: path.join(__dirname, "/src") },
       { find: "@Firebase", replacement: path.join(__dirname, "/firebase") },
-      { find: "@Auth", replacement: path.join(__dirname, "/src/components/Auth") },
+      {
+        find: "@Auth",
+        replacement: path.join(__dirname, "/src/components/Auth"),
+      },
+      { find: "@Style", replacement: path.join(__dirname, "/src/scss") },
     ],
   },
 });
