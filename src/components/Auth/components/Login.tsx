@@ -19,6 +19,20 @@ function Login() {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
+  const [email, setEmail] = useState("");
+
+  function handleEmailSubmit() {
+    if (emailRef.current?.value) {
+      setEmail(emailRef.current?.value);
+      setEmailCorrect(true);
+    }
+  }
+
+  function handleSubmit() {
+    console.log("email: ", email);
+    console.log("password: ", passwordRef.current?.value);
+  }
+
   return (
     <>
       {!currentUser && (
@@ -33,7 +47,9 @@ function Login() {
                   <label htmlFor="email">e-mail</label>
                   <input type="email" name="email" id="email" ref={emailRef} />
                 </fieldset>
-                <button type="submit">Sign in with email</button>
+                <button type="submit" onClick={handleEmailSubmit}>
+                  Sign in with email
+                </button>
               </div>
             )}
             {emailCorrect && (
@@ -47,7 +63,9 @@ function Login() {
                     ref={passwordRef}
                   />
                 </fieldset>
-                <button type="submit">Sign in</button>
+                <button type="submit" onClick={handleSubmit}>
+                  Sign in
+                </button>
               </div>
             )}
           </div>
