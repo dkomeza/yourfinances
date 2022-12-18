@@ -4,6 +4,9 @@ import { useAuth } from "@Auth/context/AuthContext";
 import "@Auth/scss/Login.scss";
 
 import backgroundImage from "@Auth/assets/background.png";
+import logo from "@Auth/assets/logo.svg";
+import googleIcon from "@Auth/assets/google-icon.svg";
+import facebookIcon from "@Auth/assets/facebook-icon.svg";
 
 function Login() {
   const {
@@ -20,11 +23,18 @@ function Login() {
   const passwordRef = useRef<HTMLInputElement>(null);
 
   const [email, setEmail] = useState("");
+  const [animate, setAnimate] = useState(false);
+  const [transform, setTransform] = useState(0);
 
   function handleEmailSubmit() {
     if (emailRef.current?.value) {
       setEmail(emailRef.current?.value);
-      setEmailCorrect(true);
+      setAnimate(true);
+      setTransform(-200);
+      setTimeout(() => {
+        setEmailCorrect(true);
+        setAnimate(false);
+      }, 1000);
     }
   }
 
@@ -41,19 +51,31 @@ function Login() {
             <img src={backgroundImage} alt="Background Image" />
           </div>
           <div className="login-container">
-            {!emailCorrect && (
-              <div>
+            <img src={logo} alt="Logo" />
+            {(!emailCorrect || animate) && (
+              <div style={{ transform: `translateX(${transform}%)` }}>
                 <fieldset>
                   <label htmlFor="email">e-mail</label>
-                  <input type="email" name="email" id="email" ref={emailRef} />
+                  <input type="text" name="email" id="email" ref={emailRef} />
                 </fieldset>
                 <button type="submit" onClick={handleEmailSubmit}>
                   Sign in with email
                 </button>
+                <div>
+                  Don't have an account? <a href="/">Sign up</a> here!
+                </div>
+                <button type="submit" onClick={googleSignin}>
+                  <img src={googleIcon} alt="Google Icon" />
+                  <span>Sign in with Google</span>
+                </button>
+                <button type="submit" onClick={facebookSignin}>
+                  <img src={facebookIcon} alt="Facebook Icon" />
+                  <span>Sign in with Facebook</span>
+                </button>
               </div>
             )}
-            {emailCorrect && (
-              <div>
+            {(emailCorrect || animate) && (
+              <div style={{ transform: `translateX(${200 + transform}%)` }}>
                 <fieldset>
                   <label htmlFor="password">password</label>
                   <input
