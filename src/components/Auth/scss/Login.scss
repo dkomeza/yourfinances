@@ -1,18 +1,22 @@
 @use "@Style/variables" as *;
 
+@import url(https://fonts.googleapis.com/css?family=Baloo+2:regular,500,600,700,800);
+
 .login-page {
   display: flex;
   width: 100vw;
   height: 100vh;
   align-items: center;
   background-color: $background-primary;
+  color: $primary;
+  font-family: "Baloo 2", sans-serif;
   .background-image-container {
     height: 100%;
     overflow: hidden;
     padding: 0.5rem 1rem;
     img {
       height: 100%;
-      filter: blur(0.5rem) opacity(0.5);
+      filter: blur(0.25rem) opacity(0.5);
       transition: 0.5s;
       transform: translateX(-50%);
       border-radius: 1rem;
@@ -24,8 +28,33 @@
   }
   .login-container {
     height: 100%;
-    width: 100%;
+    width: max-content;
     background-color: $background-secondary;
+    padding: 0 2rem;
+    form {
+      display: flex;
+      flex-direction: column;
+      fieldset {
+        border: 0;
+        display: flex;
+        flex-direction: column;
+        label {
+          color: $label;
+          font-size: 16px;
+        }
+        input {
+          width: 300px;
+          background: rgba(31, 31, 31, 0.5);
+          border-radius: 1rem;
+          border: 0;
+          outline: 0;
+          padding: 0.5rem 1rem;
+          color: $primary;
+          font-family: "Baloo 2", sans-serif;
+          font-size: 18px;
+        }
+      }
+    }
   }
 }
 
