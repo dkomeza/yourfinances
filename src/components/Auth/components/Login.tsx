@@ -16,6 +16,9 @@ function Login() {
 
   const [emailCorrect, setEmailCorrect] = useState(false);
 
+  const emailRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+
   return (
     <>
       {!currentUser && (
@@ -28,7 +31,7 @@ function Login() {
               <div>
                 <fieldset>
                   <label htmlFor="email">e-mail</label>
-                  <input type="email" name="email" id="email" />
+                  <input type="email" name="email" id="email" ref={emailRef} />
                 </fieldset>
                 <button type="submit">Sign in with email</button>
               </div>
@@ -37,7 +40,12 @@ function Login() {
               <div>
                 <fieldset>
                   <label htmlFor="password">password</label>
-                  <input type="password" name="password" id="password" />
+                  <input
+                    type="password"
+                    name="password"
+                    id="password"
+                    ref={passwordRef}
+                  />
                 </fieldset>
                 <button type="submit">Sign in</button>
               </div>
