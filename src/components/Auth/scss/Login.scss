@@ -31,6 +31,15 @@
     width: max-content;
     background-color: $background-secondary;
     padding: 0 2rem;
+    overflow: hidden;
+    position: relative;
+    > div {
+      transition: 1s;
+      position: absolute;
+    }
+    .second-page {
+      transform: translateX(200%);
+    }
     form {
       display: flex;
       flex-direction: column;

@@ -30,7 +30,10 @@ function Login() {
     if (emailRef.current?.value) {
       setEmail(emailRef.current?.value);
       setAnimate(true);
-      setTransform(-200);
+      setTimeout(() => {
+        setTransform(-200);
+      }, 1);
+
       setTimeout(() => {
         setEmailCorrect(true);
         setAnimate(false);
@@ -75,7 +78,10 @@ function Login() {
               </div>
             )}
             {(emailCorrect || animate) && (
-              <div style={{ transform: `translateX(${200 + transform}%)` }}>
+              <div
+                className="second-page"
+                style={{ transform: `translateX(${200 + transform}%)` }}
+              >
                 <fieldset>
                   <label htmlFor="password">password</label>
                   <input
