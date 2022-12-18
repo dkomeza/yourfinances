@@ -14,6 +14,8 @@ function Login() {
     handleErrorCodes,
   } = useAuth();
 
+  const [emailCorrect, setEmailCorrect] = useState(false);
+
   return (
     <>
       {!currentUser && (
@@ -22,17 +24,24 @@ function Login() {
             <img src={backgroundImage} alt="Background Image" />
           </div>
           <div className="login-container">
-            <form>
-              <fieldset>
-                <label htmlFor="email">e-mail</label>
-                <input type="email" name="email" id="email" />
-              </fieldset>
-              <fieldset>
-                <label htmlFor="password">password</label>
-                <input type="password" name="password" id="password" />
-              </fieldset>
-              <button type="submit">Login</button>
-            </form>
+            {!emailCorrect && (
+              <div>
+                <fieldset>
+                  <label htmlFor="email">e-mail</label>
+                  <input type="email" name="email" id="email" />
+                </fieldset>
+                <button type="submit">Sign in with email</button>
+              </div>
+            )}
+            {emailCorrect && (
+              <div>
+                <fieldset>
+                  <label htmlFor="password">password</label>
+                  <input type="password" name="password" id="password" />
+                </fieldset>
+                <button type="submit">Sign in</button>
+              </div>
+            )}
           </div>
         </main>
       )}
