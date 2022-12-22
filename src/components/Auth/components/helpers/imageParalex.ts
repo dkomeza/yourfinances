@@ -17,6 +17,7 @@ export function imageParalex() {
           duration: 1000,
           iterations: 1,
           fill: "forwards",
+          easing: "ease-in-out",
         }
       );
     };
