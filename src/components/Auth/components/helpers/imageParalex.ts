@@ -10,8 +10,9 @@ export function imageParalex() {
       const x = e.clientX;
       let percentage = (1 + (x - containerWidth) / containerWidth) * 100;
       let offset = map(percentage, 0, 100, 0, imageWidth - containerWidth);
+      if (offset < 0) offset = 0;
       image.animate(
-        { transform: `translateX(-${offset}px` },
+        { transform: `translateX(-${offset}px)` },
         {
           duration: 1000,
           iterations: 1,
