@@ -2,6 +2,8 @@
 
 @import url(https://fonts.googleapis.com/css?family=Baloo+2:regular,500,600,700,800);
 
+@import "./background";
+
 .login-page {
   display: flex;
   width: 100vw;
@@ -10,22 +12,6 @@
   background-color: $background-primary;
   color: $primary;
   font-family: "Baloo 2", sans-serif;
-  .background-image-container {
-    height: 100%;
-    overflow: hidden;
-    padding: 0.5rem 1rem;
-    img {
-      height: 100%;
-      filter: blur(0.25rem) opacity(0.5);
-      transition: 0.5s;
-      transform: translateX(-50%);
-      border-radius: 1rem;
-      &:hover {
-        filter: blur(0) opacity(1);
-        transform: translateX(0%);
-      }
-    }
-  }
   .login-container {
     height: 100%;
     width: max-content;

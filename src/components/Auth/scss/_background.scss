@@ -1,0 +1,18 @@
+.login-page {
+  .background-image-container {
+    height: 100%;
+    overflow: hidden;
+    padding: 0.5rem 1rem;
+    img {
+      height: 100%;
+      filter: blur(0.25rem) opacity(0.5);
+      //   transition: 0.5s;
+      transform: translateX(-50%);
+      border-radius: 1rem;
+      &:hover {
+        filter: blur(0) opacity(1);
+        transform: translateX(0%);
+      }
+    }
+  }
+}
