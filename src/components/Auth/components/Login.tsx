@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useAuth } from "@Auth/context/AuthContext";
+import { imageParalex } from "./helpers/imageParalex";
 
 import "@Auth/scss/Login.scss";
 
@@ -26,6 +27,10 @@ function Login() {
   const [animate, setAnimate] = useState(false);
   const [transform, setTransform] = useState(0);
 
+  useEffect(() => {
+    imageParalex();
+  }, []);
+
   function handleEmailSubmit() {
     if (emailRef.current?.value) {
       setEmail(emailRef.current?.value);
@@ -51,7 +56,11 @@ function Login() {
       {!currentUser && (
         <main className="login-page">
           <div className="background-image-container">
-            <img src={backgroundImage} alt="Background Image" />
+            <img
+              className="background-image"
+              src={backgroundImage}
+              alt="Background Image"
+            />
           </div>
           <div className="login-container">
             <img src={logo} alt="Logo" />
