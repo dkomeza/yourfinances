@@ -6,12 +6,16 @@
     img {
       height: 100%;
       filter: blur(0.25rem) opacity(0.5);
-      //   transition: 0.5s;
-      transform: translateX(-50%);
+      // transition-property: blur, opacity;
+      // transition-duration: 0.5s;
+
+      // transition-timing-function: ease-in-out;
+      transition: 0.5s;
       border-radius: 1rem;
-      &:hover {
-        filter: blur(0) opacity(1);
-        transform: translateX(0%);
+    }
+    &:hover {
+      img {
+        filter: blur(0) opacity(0.9);
       }
     }
   }
