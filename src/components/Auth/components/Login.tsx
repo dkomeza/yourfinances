@@ -76,7 +76,7 @@ function Login() {
                 <button type="submit" onClick={handleEmailSubmit}>
                   Sign in with email
                 </button>
-                <div>
+                <div className="signup-wrapper">
                   Don't have an account? <a href="/">Sign up</a> here!
                 </div>
                 <button type="submit" onClick={googleSignin}>

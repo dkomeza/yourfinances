@@ -40,8 +40,26 @@
         color: #fafafa;
         cursor: pointer;
         transition: 0.3s;
+        background: linear-gradient(180deg, $accent 0%, $accent-secondary 100%);
         &:hover {
-          filter: drop-shadow(0 0 0.2rem $accent-secondary);
+          filter: drop-shadow(0 0 0.2rem $accent-shadow);
+        }
+      }
+      .signup-wrapper {
+        margin: 0 auto;
+        margin-top: 0.5rem;
+        display: block;
+        width: max-content;
+        color: $label;
+        font-weight: 600;
+        font-size: 1rem;
+        a {
+          color: $accent;
+          text-decoration: none;
+          transition: 0.2s;
+          &:hover {
+            color: $accent-secondary;
+          }
         }
       }
     }
@@ -52,7 +70,7 @@
       visibility: hidden;
     }
     .input-wrapper {
-      margin-top: 2rem;
+      margin-top: 1rem;
       border: 0;
       display: flex;
       flex-direction: column;
