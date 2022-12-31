@@ -63,60 +63,66 @@ function Login() {
             />
           </div>
           <div className="login-container">
-            <img src={logo} alt="Logo" />
-            {(!emailCorrect || animate) && (
-              <div
-                style={{ transform: `translateX(${transform}%)` }}
-                className="email-container form-container"
-              >
-                <div className="input-wrapper">
-                  <label htmlFor="email">e-mail</label>
-                  <input type="text" name="email" id="email" ref={emailRef} />
-                </div>
-                <button
-                  type="submit"
-                  onClick={handleEmailSubmit}
-                  className="login-button"
+            <div className="login-wrapper">
+              <img src={logo} alt="Logo" />
+              {(!emailCorrect || animate) && (
+                <div
+                  style={{ transform: `translateX(${transform}%)` }}
+                  className="email-container form-container"
                 >
-                  Sign in with email
-                </button>
-                <div className="signup-wrapper">
-                  Don't have an account? <a href="/">Sign up</a> here!
-                </div>
-                <div className="social-login-wrapper">
-                  <button type="submit" onClick={googleSignin}>
-                    <img src={googleIcon} alt="Google Icon" />
-                    <span>Sign in with Google</span>
+                  <div className="input-wrapper">
+                    <label htmlFor="email">e-mail</label>
+                    <input type="text" name="email" id="email" ref={emailRef} />
+                  </div>
+                  <button
+                    type="submit"
+                    onClick={handleEmailSubmit}
+                    className="login-button"
+                  >
+                    Sign in with email
                   </button>
-                  <button type="submit" onClick={facebookSignin}>
-                    <img src={facebookIcon} alt="Facebook Icon" />
-                    <span>Sign in with Facebook</span>
+                  <div className="signup-wrapper">
+                    Don't have an account? <a href="/">Sign up</a> here!
+                  </div>
+                  <div className="social-login-wrapper">
+                    <button type="submit" onClick={googleSignin}>
+                      <img src={googleIcon} alt="Google Icon" />
+                      <span>Sign in with Google</span>
+                    </button>
+                    <button type="submit" onClick={facebookSignin}>
+                      <img src={facebookIcon} alt="Facebook Icon" />
+                      <span>Sign in with Facebook</span>
+                    </button>
+                  </div>
+                </div>
+              )}
+              {(emailCorrect || animate) && (
+                <div
+                  className="password-container form-container"
+                  style={{ transform: `translateX(${200 + transform}%)` }}
+                >
+                  <div className="input-wrapper">
+                    <label htmlFor="password">password</label>
+                    <input
+                      type="password"
+                      name="password"
+                      id="password"
+                      ref={passwordRef}
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    onClick={handleSubmit}
+                    className="login-button"
+                  >
+                    Sign in
                   </button>
                 </div>
-              </div>
-            )}
-            {(emailCorrect || animate) && (
-              <div
-                className="password-container form-container"
-                style={{ transform: `translateX(${200 + transform}%)` }}
-              >
+              )}
+              <div className="placeholder">
                 <div className="input-wrapper">
-                  <label htmlFor="password">password</label>
-                  <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    ref={passwordRef}
-                  />
+                  <input type="text" name="placeholder" id="placeholder" />
                 </div>
-                <button type="submit" onClick={handleSubmit}>
-                  Sign in
-                </button>
-              </div>
-            )}
-            <div className="placeholder">
-              <div className="input-wrapper">
-                <input type="text" name="placeholder" id="placeholder" />
               </div>
             </div>
           </div>

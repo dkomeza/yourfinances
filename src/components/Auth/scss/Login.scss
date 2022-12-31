@@ -21,108 +21,124 @@
     position: relative;
     flex-grow: 1;
     flex-shrink: 0;
-    .form-container {
-      transition: 0.5s;
-      position: absolute;
-      .login-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .login-wrapper {
+      transform: translateY(-150%);
+      width: max-content;
+      margin: 0 auto;
+      img {
         display: block;
-        width: 100%;
-        margin-top: 1.5rem;
-        border: 0;
-        outline: 0;
-        padding: 0.5rem 1rem;
-        border-radius: 1rem;
-        font-size: 1.4rem;
-        font-weight: 600;
-        line-height: 38px;
-        letter-spacing: 0.01em;
-        font-family: "Baloo 2", sans-serif;
-        color: #fafafa;
-        cursor: pointer;
-        transition: 0.3s;
-        background: linear-gradient(180deg, $accent 0%, $accent-secondary 100%);
-        &:hover {
-          filter: drop-shadow(0 0 0.2rem $accent-shadow);
-        }
-      }
-      .signup-wrapper {
         margin: 0 auto;
-        margin-top: 0.5rem;
-        display: block;
-        width: max-content;
-        color: $label;
-        font-weight: 600;
-        font-size: 1rem;
-        user-select: none;
-        a {
-          color: $accent;
-          text-decoration: none;
-          transition: 0.2s;
-          &:hover {
-            color: $accent-secondary;
-          }
-        }
       }
-      .social-login-wrapper {
-        display: flex;
-        flex-direction: column;
-        row-gap: 1rem;
-        margin-top: 1.5rem;
-        justify-content: space-around;
-        button {
-          display: flex;
-          justify-content: center;
-          align-items: center;
+      .form-container {
+        transition: 0.5s;
+        position: absolute;
+        .login-button {
+          display: block;
+          width: 100%;
+          margin-top: 1.5rem;
           border: 0;
-          padding: 1rem;
+          outline: 0;
+          padding: 0.5rem 1rem;
           border-radius: 1rem;
-          background-color: rgba(31, 31, 31, 0.5);
+          font-size: 1.4rem;
+          font-weight: 600;
+          line-height: 38px;
+          letter-spacing: 0.01em;
+          font-family: "Baloo 2", sans-serif;
+          color: #fafafa;
           cursor: pointer;
           transition: 0.3s;
+          background: linear-gradient(
+            180deg,
+            $accent 0%,
+            $accent-secondary 100%
+          );
           &:hover {
-            background-color: rgba(40, 40, 40, 0.5);
+            filter: drop-shadow(0 0 0.2rem $accent-shadow);
           }
-          img {
-            height: 2rem;
-            width: 2rem;
-            object-fit: contain;
+        }
+        .signup-wrapper {
+          margin: 0 auto;
+          margin-top: 0.5rem;
+          display: block;
+          width: max-content;
+          color: $label;
+          font-weight: 600;
+          font-size: 1rem;
+          user-select: none;
+          a {
+            color: $accent;
+            text-decoration: none;
+            transition: 0.2s;
+            &:hover {
+              color: $accent-secondary;
+            }
           }
-          span {
-            margin-left: 1rem;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: $label;
-            font-family: "Baloo 2", sans-serif;
+        }
+        .social-login-wrapper {
+          display: flex;
+          flex-direction: column;
+          row-gap: 1rem;
+          margin-top: 1.5rem;
+          justify-content: space-around;
+          button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 0;
+            padding: 1rem;
+            border-radius: 1rem;
+            background-color: rgba(31, 31, 31, 0.5);
+            cursor: pointer;
+            transition: 0.3s;
+            &:hover {
+              background-color: rgba(40, 40, 40, 0.5);
+            }
+            img {
+              height: 2rem;
+              width: 2rem;
+              object-fit: contain;
+            }
+            span {
+              margin-left: 1rem;
+              font-size: 1.2rem;
+              font-weight: 600;
+              color: $label;
+              font-family: "Baloo 2", sans-serif;
+            }
           }
         }
       }
-    }
-    .password-container {
-      transform: translateX(200%);
-    }
-    .placeholder {
-      visibility: hidden;
-    }
-    .input-wrapper {
-      margin-top: 1rem;
-      border: 0;
-      display: flex;
-      flex-direction: column;
-      label {
-        color: $label;
-        font-size: 16px;
-        user-select: none;
+      .password-container {
+        transform: translateX(200%);
       }
-      input {
-        width: 300px;
-        background: rgba(31, 31, 31, 0.5);
-        border-radius: 1rem;
+      .placeholder {
+        visibility: hidden;
+      }
+      .input-wrapper {
+        margin-top: 1.5rem;
         border: 0;
-        outline: 0;
-        padding: 0.5rem 1rem;
-        color: $primary;
-        font-family: "Baloo 2", sans-serif;
-        font-size: 18px;
+        display: flex;
+        flex-direction: column;
+        label {
+          color: $label;
+          font-size: 16px;
+          user-select: none;
+        }
+        input {
+          width: 300px;
+          background: rgba(31, 31, 31, 0.5);
+          border-radius: 1rem;
+          border: 0;
+          outline: 0;
+          padding: 0.5rem 1rem;
+          color: $primary;
+          font-family: "Baloo 2", sans-serif;
+          font-size: 18px;
+        }
       }
     }
   }
