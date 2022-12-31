@@ -11,6 +11,8 @@
 
       // transition-timing-function: ease-in-out;
       transition: 0.5s;
+      transition-property: filter;
+      transition-timing-function: ease-in-out;
       border-radius: 1rem;
     }
     &:hover {

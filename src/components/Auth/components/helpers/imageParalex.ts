@@ -4,6 +4,15 @@ export function imageParalex() {
     ".background-image-container"
   ) as HTMLElement;
   image.addEventListener("load", () => {
+    let initialOffset = map(
+      100,
+      0,
+      100,
+      0,
+      image.getBoundingClientRect().width -
+        container.getBoundingClientRect().width
+    );
+    image.style.transform = `translateX(-${initialOffset}px)`;
     container.onmousemove = (e: MouseEvent) => {
       const imageWidth = image.getBoundingClientRect().width;
       const containerWidth = container.getBoundingClientRect().width;
