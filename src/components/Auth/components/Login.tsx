@@ -73,18 +73,26 @@ function Login() {
                   <label htmlFor="email">e-mail</label>
                   <input type="text" name="email" id="email" ref={emailRef} />
                 </div>
-                <button type="submit" onClick={handleEmailSubmit}>
+                <button
+                  type="submit"
+                  onClick={handleEmailSubmit}
+                  className="login-button"
+                >
                   Sign in with email
                 </button>
                 <div className="signup-wrapper">
                   Don't have an account? <a href="/">Sign up</a> here!
                 </div>
-                <button type="submit" onClick={googleSignin}>
-                  <img src={googleIcon} alt="Google Icon" />
-                </button>
-                <button type="submit" onClick={facebookSignin}>
-                  <img src={facebookIcon} alt="Facebook Icon" />
-                </button>
+                <div className="social-login-wrapper">
+                  <button type="submit" onClick={googleSignin}>
+                    <img src={googleIcon} alt="Google Icon" />
+                    <span>Sign in with Google</span>
+                  </button>
+                  <button type="submit" onClick={facebookSignin}>
+                    <img src={facebookIcon} alt="Facebook Icon" />
+                    <span>Sign in with Facebook</span>
+                  </button>
+                </div>
               </div>
             )}
             {(emailCorrect || animate) && (

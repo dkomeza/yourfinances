@@ -24,7 +24,7 @@
     .form-container {
       transition: 0.5s;
       position: absolute;
-      button {
+      .login-button {
         display: block;
         width: 100%;
         margin-top: 1.5rem;
@@ -32,11 +32,11 @@
         outline: 0;
         padding: 0.5rem 1rem;
         border-radius: 1rem;
-        font-size: 18px;
+        font-size: 1.4rem;
         font-weight: 600;
         line-height: 38px;
         letter-spacing: 0.01em;
-
+        font-family: "Baloo 2", sans-serif;
         color: #fafafa;
         cursor: pointer;
         transition: 0.3s;
@@ -53,12 +53,46 @@
         color: $label;
         font-weight: 600;
         font-size: 1rem;
+        user-select: none;
         a {
           color: $accent;
           text-decoration: none;
           transition: 0.2s;
           &:hover {
             color: $accent-secondary;
+          }
+        }
+      }
+      .social-login-wrapper {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+        margin-top: 1.5rem;
+        justify-content: space-around;
+        button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 0;
+          padding: 1rem;
+          border-radius: 1rem;
+          background-color: rgba(31, 31, 31, 0.5);
+          cursor: pointer;
+          transition: 0.3s;
+          &:hover {
+            background-color: rgba(40, 40, 40, 0.5);
+          }
+          img {
+            height: 2rem;
+            width: 2rem;
+            object-fit: contain;
+          }
+          span {
+            margin-left: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: $label;
+            font-family: "Baloo 2", sans-serif;
           }
         }
       }
@@ -77,6 +111,7 @@
       label {
         color: $label;
         font-size: 16px;
+        user-select: none;
       }
       input {
         width: 300px;
@@ -91,8 +126,4 @@
       }
     }
   }
-}
-
-button {
-  background-color: $accent;
 }
