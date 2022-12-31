@@ -65,11 +65,14 @@ function Login() {
           <div className="login-container">
             <img src={logo} alt="Logo" />
             {(!emailCorrect || animate) && (
-              <div style={{ transform: `translateX(${transform}%)` }}>
-                <fieldset>
+              <div
+                style={{ transform: `translateX(${transform}%)` }}
+                className="email-container form-container"
+              >
+                <div className="input-wrapper">
                   <label htmlFor="email">e-mail</label>
                   <input type="text" name="email" id="email" ref={emailRef} />
-                </fieldset>
+                </div>
                 <button type="submit" onClick={handleEmailSubmit}>
                   Sign in with email
                 </button>
@@ -78,20 +81,18 @@ function Login() {
                 </div>
                 <button type="submit" onClick={googleSignin}>
                   <img src={googleIcon} alt="Google Icon" />
-                  <span>Sign in with Google</span>
                 </button>
                 <button type="submit" onClick={facebookSignin}>
                   <img src={facebookIcon} alt="Facebook Icon" />
-                  <span>Sign in with Facebook</span>
                 </button>
               </div>
             )}
             {(emailCorrect || animate) && (
               <div
-                className="second-page"
+                className="password-container form-container"
                 style={{ transform: `translateX(${200 + transform}%)` }}
               >
-                <fieldset>
+                <div className="input-wrapper">
                   <label htmlFor="password">password</label>
                   <input
                     type="password"
@@ -99,12 +100,17 @@ function Login() {
                     id="password"
                     ref={passwordRef}
                   />
-                </fieldset>
+                </div>
                 <button type="submit" onClick={handleSubmit}>
                   Sign in
                 </button>
               </div>
             )}
+            <div className="placeholder">
+              <div className="input-wrapper">
+                <input type="text" name="placeholder" id="placeholder" />
+              </div>
+            </div>
           </div>
         </main>
       )}
